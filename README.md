@@ -1,9 +1,19 @@
-**A command-line library management system written in Java**
+# A command-line library management system written in Java
 
-### Requirements:
-JDK 11 or later
+## Usage
 
-### How to run Library Manager
+### *nix systems
 
-#### On Windows:
-Run the `LibraryManager.bat` file
+Compile the application and run it
+
+```java
+javac Library.java
+java Library
+```
+
+The data is stored in LibraryStore.txt in the project directory
+
+### Windows
+
+Run the `LibraryManager.bat` file present in the "windows" directory of the project  
+The data is stored in C:/Library Software/File.txt

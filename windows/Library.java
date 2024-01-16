@@ -8,10 +8,9 @@ public class Library {
     String arr[][];
     int cols = 7, found = 0;
     Scanner sc = new Scanner(System.in);
-    String file = "LibraryStore.txt";
 
     void fileToArray() throws IOException {
-        Scanner fr = new Scanner(new FileReader(file));
+        Scanner fr = new Scanner(new FileReader("C:\\Library Software\\File.txt"));
         int count = 0;
         while (fr.hasNextLine()) {
             count++;
@@ -20,7 +19,7 @@ public class Library {
         arr = new String[count][cols];
         fr.close();
         count = 0;
-        Scanner fr2 = new Scanner(new FileReader(file));
+        Scanner fr2 = new Scanner(new FileReader("C:\\Library Software\\File.txt"));
         while (fr2.hasNextLine()) {
             StringTokenizer str = new StringTokenizer(fr2.nextLine(), ",");
             for (int i = 0; i < cols; i++)
@@ -64,7 +63,7 @@ public class Library {
             System.out.println("Enter the genre of the book " + (i + 1));
             temparr[i][3] = sc.nextLine();
         }
-        FileWriter fw = new FileWriter(file, true);
+        FileWriter fw = new FileWriter("C:\\Library Software\\File.txt", true);
         arrayToFile(temparr, fw);
         System.out.println("The books have been added to the database");
         System.out.println("Enter any digit to return to the home screen");
@@ -145,7 +144,7 @@ public class Library {
                 int days = sc.nextInt();
                 c.add(Calendar.DATE, days);
                 arr[i][6] = new SimpleDateFormat("dd/MM/yyyy").format(c.getTime());
-                FileWriter fw = new FileWriter(file);
+                FileWriter fw = new FileWriter("C:\\Library Software\\File.txt");
                 arrayToFile(arr, fw);
             } else
                 System.out.println("The book has already been issued to another person!!");
@@ -178,7 +177,7 @@ public class Library {
                     arr[i][4] = "None";
                     arr[i][5] = "None";
                     arr[i][6] = "None";
-                    FileWriter fw = new FileWriter(file);
+                    FileWriter fw = new FileWriter("C:\\Library Software\\File.txt");
                     arrayToFile(arr, fw);
                 }
             } else
@@ -190,7 +189,7 @@ public class Library {
     }
 
     void homeScreen() throws IOException, ParseException {
-        File f = new File(file);
+        File f = new File("C:\\Library Software\\File.txt");
         if (f.exists())
             fileToArray();
         else {
